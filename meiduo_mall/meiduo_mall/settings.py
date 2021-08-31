@@ -119,7 +119,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+# pycharm
 # Ctrl + k 进行 git的 add git commit操作
 # ctrl + shift + k 来进行 git push操作
 
