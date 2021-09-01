@@ -127,3 +127,25 @@ STATIC_URL = '/static/'
 # Ctrl + k 进行 git的 add git commit操作
 # ctrl + alt + k 来进行 git push操作
 
+
+############################django-redis#############################
+CACHES = {
+    "default": { # 默认（预留）
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/0",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    "session": { # 用于保存session数据
+            "BACKEND": "django_redis.cache.RedisCache",
+            "LOCATION": "redis://127.0.0.1:6379/1",
+            "OPTIONS": {
+                "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+
+}
+# session使用cache缓存
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "session"
